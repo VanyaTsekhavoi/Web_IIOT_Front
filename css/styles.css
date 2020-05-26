@@ -1,0 +1,326 @@
+body {
+    background-color: #ffffff;
+}
+
+.pt-1 {
+    padding-top: 1% !important
+}
+
+.pb-1 {
+    padding-bottom: 1% !important
+}
+
+.pr-1 {
+    padding-right: 1% !important
+}
+
+.pl-1 {
+    padding-left: 1% !important
+}
+
+.pt-2 {
+    padding-top: 2% !important
+}
+
+.pb-2 {
+    padding-bottom: 2% !important
+}
+
+.pr-2 {
+    padding-right: 2% !important
+}
+
+.pl-2 {
+    padding-left: 2% !important
+}
+
+.pt-3 {
+    padding-top: 3% !important
+}
+
+.pb-3 {
+    padding-bottom: 3% !important
+}
+
+.pr-3 {
+    padding-right: 3% !important
+}
+
+.pl-3 {
+    padding-left: 3% !important
+}
+
+.sidenav, .sidenav-dark.sidenav-main .collapsible {
+    border: none
+}
+
+.sidenav, .sidenav-light.sidenav-main .collapsible {
+    border: none
+}
+
+.sidenav-dark {
+    background: #2c323f
+}
+
+.sidenav-light {
+    background: #fff
+}
+
+.sidenav-main {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    width: 260px;
+    height: 100%;
+    -webkit-transition: .3s ease all;
+    transition: .3s ease all
+}
+
+.navbar .sideNav-lock .header-search-wrapper {
+    width: calc(100% - 560px);
+    margin: 10px auto 0 270px
+}
+
+.nav-collapsed .sidenav .collapsible-body span,.nav-collapsed .sidenav .collapsible-header:after,.nav-collapsed .sidenav .menu-title,.nav-collapsed .sidenav .user-options,.nav-lock .navigation-header-icon {
+    display: none
+}
+
+.nav-lock~footer {
+    padding-left: 267px
+}
+
+.brand-sidebar, .sidenav {
+    width: inherit;
+    box-shadow: 0 4px 7px 0 rgba(0, 0, 0, .2)
+}
+
+.brand-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 64px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden
+}
+
+@media only screen and (max-width:992px) {
+    .brand-sidebar .brand-logo {
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%)
+    }
+    .brand-sidebar .brand-logo.left, .brand-sidebar .brand-logo.right {
+        padding: 0;
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none
+    }
+    .brand-sidebar .brand-logo.left {
+        left: .5rem
+    }
+    .brand-sidebar .brand-logo.right {
+        right: .5rem;
+        left: auto
+    }
+}
+
+
+.ps {
+    overflow: hidden!important;
+    overflow-anchor: none;
+    -ms-overflow-style: none;
+    touch-action: auto;
+    -ms-touch-action: auto
+}
+
+.ps--active-x>.ps__rail-x,.ps--active-y>.ps__rail-y {
+    display: block;
+    background-color: transparent
+}
+
+.ps--focus>.ps__rail-x,.ps--focus>.ps__rail-y,.ps--scrolling-x>.ps__rail-x,.ps--scrolling-y>.ps__rail-y,.ps:hover>.ps__rail-x,.ps:hover>.ps__rail-y {
+    opacity: .6
+}
+
+.nav-collapsed.sidenav-main {
+    width: 64px
+}
+
+/*
+Nav content
+*/
+
+.gradient-45deg-yellow-dark-yellow {
+    background: -webkit-linear-gradient(45deg,#cfbe23,#383305)!important;
+    background: linear-gradient(45deg,#ffe818,#000000)!important
+}
+
+.gradient-45deg-purple-deep-orange.gradient-shadow {
+    box-shadow: 0 6px 20px 0 rgba(255,110,64,.5)!important
+}
+
+/*
+Adaptive state of main page content
+ */
+
+#main {
+    padding-left: 260px;
+    -webkit-transition: .3s ease all;
+    transition: .3s ease all;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden
+}
+
+#main.main-full {
+    padding-left: 64px
+}
+
+
+/*
+Adaptive state of sideBar content
+ */
+
+ .sidenav {
+    top: 64px;
+    overflow: hidden;
+    height: 100%;
+    padding-bottom: 65px;
+    -webkit-transition: auto!important;
+    transition: auto!important;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+}
+ 
+.brand-sidebar .brand-logo {
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    display: inline-block;
+    width: 225px;
+    height: 64px;
+    padding: 20px 12px 20px 12px;
+}
+
+.brand-sidebar .brand-logo .logo-text {
+    font-size: 2.1rem;
+    width: auto;
+    height: auto;
+    padding: 20px 0px 20px 10px;
+    color: #333
+}
+
+.brand-sidebar a.navbar-toggler {
+    position: absolute;
+    right: 20px
+}
+
+.brand-sidebar a.navbar-toggler i {
+    font-size: 15px;
+    line-height: 66px;
+    display: block;
+    height: 64px;
+    color: #333
+}
+
+.brand-sidebar span.logo-text,.brand-sidebar .navbar-toggler {
+    visibility: visible;
+    -webkit-transition: opacity .3s linear;
+    -moz-transition: opacity .3s linear;
+    -ms-transition: opacity .3s linear;
+    -o-transition: opacity .3s linear;
+    transition: opacity .3s linear;
+    opacity: 1
+
+}
+.nav-collapsed .brand-sidebar .brand-logo span,.nav-collapsed .brand-sidebar .navbar-toggler {
+    visibility: hidden;
+    -webkit-transition: visibility 0s .2s, opacity .2s linear;
+    -moz-transition: visibility 0s .2s, opacity .2s linear;
+    -ms-transition: visibility 0s .2s, opacity .2s linear;
+    -o-transition: visibility 0s .2s, opacity .2s linear;
+    transition: visibility 0s .2s, opacity .2s linear;
+    opacity: 0
+}
+
+.brand-sidebar .brand-logo img {
+    height: 24px;
+    width: 40px;
+}
+#sidenav-main.nav-collapsed .navigation-header-text, #sidenav-main.nav-expanded .navigation-header-icon {
+    display: none
+}
+
+@media only screen and (max-width: 992px) {
+
+    #main {
+        padding-left: 0px
+    }
+    
+    #main.main-full {
+        padding-left: 0px
+    }
+
+    .sidenav-main {
+        height: 0;
+    }
+
+    .sidenav-main .brand-sidebar {
+        left: 60px;
+        font-size: 2.1rem;
+        line-height: 0;
+        position: absolute;
+        display: inline-block;
+        width: 64px;
+        height: 0px;
+    }
+
+    .sidenav-main .brand-sidebar .brand-logo {
+        width: 64px;
+        height: 0px;
+    }
+
+    .sidenav-main .brand-sidebar .navbar-toggler {
+        display: none;
+    }
+
+    .sidenav-main .btn-sidenav-toggle {
+        position: relative;
+        margin: 12px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .sidenav-main .btn-sidenav-toggle {
+        position: relative;
+        margin: 8px;
+    }
+
+    .sidenav {
+        top: 56px;
+        overflow: hidden;
+        height: 100%;
+        padding-bottom: 65px;
+        -webkit-transition: auto!important;
+        transition: auto!important;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+ }
+
+.overlay {
+    pointer-events: none;
+}
+
+.cursor-none {
+    cursor: none !important;
+}
+
+.height_100{
+    height: 100%;
+}
+
+.size{
+    height:404px !important;
+  }
