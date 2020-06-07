@@ -19,18 +19,15 @@
     <div class="">
       <!--<div class="navbar-fixed">-->
       <nav class="blue-grey darken-3">
-        <div class="nav-wrapper gradient-45deg-yellow-dark-yellow">
+        <div id="nav-wrapper" class="nav-wrapper gradient-45deg-yellow-dark-yellow">
 
 
           <a href="" class="center brand-logo">IIOT CLOUD<i class="material-icons">cloud</i></a>
           <ul class="right">
-            <li class="hide-on-med-and-down hoverable"><a href="">Box1</a></li>
-            <li class="hide-on-med-and-down hoverable"><a href="">Box2</a></li>
-            <li class="hide-on-med-and-down hoverable"><a href="">Periphery</a></li>
-            <li class="hide-on-med-and-down hoverable"><a href="">Settings</a></li>
-            <li class="hide-on-large-only search-input-wrapper">
-              <a class="waves-effect waves-block waves-light search-button" href="javascript:void(0);">
-                <i class="material-icons">search</i></a></li>
+            <li class="hide-on-med-and-down hoverable" data-anchor="first-box"><a data-anchor="first-box">Box1</a></li>
+            <li class="hide-on-med-and-down hoverable" data-anchor="second-box"><a data-anchor="second-box">Box2</a></li>
+            <li class="hide-on-med-and-down hoverable" data-anchor="periphery"><a data-anchor="periphery">Periphery</a></li>
+            <li class="hide-on-med-and-down hoverable"><a>Settings</a></li>
             <li class="hoverable">
               <a class="waves-effect waves-block waves-light" id="fullscreen-btn" onclick="fullscreen();">
                 <i class="material-icons">settings_overscan</i></a></li>
@@ -51,7 +48,7 @@
         <img class="hide-on-med-and-down" src="img/IIOT_logo_2.png" alt="IIOT logo">
         <span class="logo-text hide-on-med-and-down">IIOT Cloud</span>
       </a>
-      <a class="navbar-toggler" href="#" onclick="sideNavLock()"><i class="material-icons">cloud</i></a>
+      <a class="navbar-toggler" onclick="sideNavLock()"><i class="material-icons">cloud</i></a>
     </div>
     <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow ps ps--active-y"
       id="slide-out" data-menu="menu-navigation" data-collapsible="menu-accordion">
@@ -65,13 +62,19 @@
             <li class="active">
               <a class="active waves-effect waves-block waves-yellow" data-anchor="first-box">
                 <i class="material-icons" data-anchor="first-box">hdr_strong</i>
-                <span data-i18n="Modern" data-anchor="first-box">First Box</span>
+                <span data-anchor="first-box">First Box</span>
+              </a>
+            </li>
+            <li>
+              <a class="waves-effect waves-block waves-yellow" data-anchor="periphery">
+                <i class="material-icons" data-anchor="periphery">group_work</i>
+                <span data-anchor="periphery">Periphery</span>
               </a>
             </li>
             <li>
               <a class="waves-effect waves-block waves-yellow" data-anchor="second-box">
                 <i class="material-icons" data-anchor="second-box">hdr_weak</i>
-                <span data-i18n="eCommerce" data-anchor="second-box">Second Box</span>
+                <span data-anchor="second-box">Second Box</span>
               </a>
             </li>
           </ul>
@@ -79,6 +82,7 @@
       </li>
       <!--Change colour-->
 
+      <!--Edit
       <li class="bold">
         <a class="collapsible-header waves-effect waves-cyan " href="JavaScript:void(0)" tabindex="0">
           <i class="material-icons">face</i>
@@ -121,7 +125,7 @@
           </ul>
         </div>
       </li>
-
+-->
       <li class="bold">
         <a class="collapsible-header waves-effect waves-cyan " href="JavaScript:void(0)" tabindex="0">
           <i class="material-icons">warning</i>
@@ -143,9 +147,7 @@
           class="navigation-header-icon material-icons">link</i>
       </li>
       <li class="bold">
-        <a class="waves-effect waves-cyan "
-          href="https://materializecss.com/"
-          target="_blank">
+        <a class="waves-effect waves-cyan " href="https://materializecss.com/" target="_blank" >
           <i class="material-icons">import_contacts</i>
           <span class="menu-title" data-i18n="Documentation">Documentation</span>
         </a>
@@ -185,88 +187,159 @@
   <main id="main" class="">
     <div class="pr-3 pl-3 pt-3 pb-3">
 
-      <!--First Box-->
-      <div id="first-box" class="row">
-        <div class="col s12 m4 l4 xl4">
+      <!--
+  New data
+-->
+      <!--<input type="button" value="Отправить" onclick="submit()">
+      -->
 
-          <!--Pressure Box-->
-          <div class="card hoverable size">
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">Pressure Chart Box1<i
-                  class="material-icons right">more_vert</i>
-              </span>
-              <div>
-                <canvas id="first-box-pressure" height="240"></canvas>
+
+
+      <ul class="collapsible">
+        <!--First Collapsible-->
+        <li class="active">
+          <div class="collapsible-header"><i class="material-icons">developer_board</i>First Box</div>
+          <div class="collapsible-body">
+            <!--First Box-->
+            <div id="first-box" class="row">
+
+              <!--Pressure Box-->
+              <div class="col s12 m4">
+                <div class="card hoverable small">
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Pressure Chart Box1<i
+                        class="material-icons right">more_vert</i>
+                    </span>
+                    <div>
+                      <canvas id="first-box-pressure" height="240"></canvas>
+                    </div>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Card Title<i
+                        class="material-icons right">close</i></span>
+                    <p>Here is some more information about Pressure.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!--Temperature Box-->
+              <div class="col s12 m4">
+                <div class="card hoverable small">
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Temperature Chart Box1<i
+                        class="material-icons right">more_vert</i>
+                    </span>
+                    <canvas id="first-box-temperature" height="240"></canvas>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Card Title<i
+                        class="material-icons right">close</i></span>
+                    <p>Here is some more information about Temperature.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!--Humidity Box-->
+              <div class="col s12 m4">
+                <div class="card hoverable small">
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Humidity Chart Box1<i
+                        class="material-icons right">more_vert</i>
+                    </span>
+                    <canvas id="first-box-humidity" height="240"></canvas>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Card Title<i
-                  class="material-icons right">close</i></span>
-              <p>Here is some more information about Pressure.</p>
-            </div>
           </div>
-        </div>
+        </li>
+      </ul>
 
-        <!--Temperature Box-->
-        <div class="col s12 m8 l8 xl8">
-          <div class="card hoverable">
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">Temperature Chart Box1<i
-                  class="material-icons right">more_vert</i>
-              </span>
-              <canvas id="first-box-temperature"></canvas>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Card Title<i
-                  class="material-icons right">close</i></span>
-              <p>Here is some more information about Temperature.</p>
+      <ul class="collapsible">
+        <!--ThirdSecond Collapsible-->
+        <li class="">
+          <div class="collapsible-header"><i class="material-icons">filter_drama</i>Periphery</div>
+          <div class="collapsible-body">
+            <!--Periphery-->
+            <div id="periphery" class="row">
+              <div class="col s4">
+                <a class="waves-effect waves-light btn">Relay1</a>
+              </div>
+              <div class="col s4">
+                <a class="waves-effect waves-light btn">Relay2</a>
+              </div>
+              <div class="col s4">
+                <a class="waves-effect waves-light btn">Vlotage Supply</a>
+              </div>
             </div>
           </div>
-        </div>
+        </li>
+      </ul>
 
-        <!--Humidity Box-->
-        <div class="col s12">
-          <div class="card hoverable">
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">Temperature Chart Box1<i
-                  class="material-icons right">more_vert</i>
-              </span>
-              <canvas id="first-box-humidity"></canvas>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ul class="collapsible">
+        <!--Third Collapsible-->
+        <li class="active">
+          <div class="collapsible-header"><i class="material-icons">developer_board</i>Second Box</div>
+          <div class="collapsible-body">
 
-      <!--Second Box-->
-      <div id="second-box" class="row">
-        <div class="col s12 m4 l4 xl4">
-          <div class="card hoverable small">
+            <!--Second Box-->
+            <div id="second-box" class="row">
 
-          </div>
-        </div>
-        <div class="col s12 m8 l8 xl8">
-          <div class="card hoverable small">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="img/1.png">
-            </div>
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">Card Title<i
-                  class="material-icons right">more_vert</i></span>
-              <p><a href="#">This is a link</a></p>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Card Title<i
-                  class="material-icons right">close</i></span>
-              <p>Here is some more information about Temperature.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col s12">
-          <div class="card hoverable small">
+              <!--Pressure Box-->
+              <div class="col s12 m4">
+                <div class="card hoverable small">
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Pressure Chart Box2<i
+                        class="material-icons right">more_vert</i>
+                    </span>
+                    <div>
+                      <canvas id="second-box-pressure" height="240"></canvas>
+                    </div>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Card Title<i
+                        class="material-icons right">close</i></span>
+                    <p>Here is some more information about Pressure.</p>
+                  </div>
+                </div>
+              </div>
 
+              <!--Temperature Box-->
+              <div class="col s12 m4">
+                <div class="card hoverable small">
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Temperature Chart Box2<i
+                        class="material-icons right">more_vert</i>
+                    </span>
+                    <canvas id="second-box-temperature" height="240"></canvas>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Card Title<i
+                        class="material-icons right">close</i></span>
+                    <p>Here is some more information about Temperature.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!--Humidity Box-->
+              <div class="col s12 m4">
+                <div class="card hoverable small">
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Temperature Chart Box2<i
+                        class="material-icons right">more_vert</i>
+                    </span>
+                    <canvas id="second-box-humidity" height="240"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+    </div>
+    </li>
+    </ul>
+
+
+
 
     </div>
   </main>
@@ -282,124 +355,34 @@
     integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 
   <script type="text/javascript" src="js/materialize.min.js"></script>
-  <script type="text/javascript" src="js/custom.scripts.js"></script>
   <script type="text/javascript" src="js/Chart.bundle.min.js"></script>
+  <script type="text/javascript" src="js/custom.scripts.js"></script>
   <script>
-    var pressure_b1 = document.getElementById('first-box-pressure').getContext('2d'),
-      temperature_b1 = document.getElementById('first-box-temperature').getContext('2d'),
-      humidity_b1 = document.getElementById('first-box-humidity').getContext('2d');
 
 
-    var myChart1 = new Chart(pressure_b1, {
-      type: 'pie',
-      data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-          label: 'Pressure',
-          data: [12, 19, 3, 5, 2, 3],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
-      }
-    });
 
-    var myChart2 = new Chart(temperature_b1, {
-      type: 'line',
-      data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-          label: 'Temperature',
-          data: [42, 19, 3, 5, 2, 3],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true,
-              maintainAspectRatio: false
-            }
-          }]
-        }
-      }
-    });
+    /*
+    let url = 'https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits';
+    */
 
-    var myChart3 = new Chart(humidity_b1, {
-      type: 'line',
-      data: {
-        labels: ['Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-          label: 'Temperature',
-          data: [12, 19, 3, 5, 2, 3],
-          backgroundColor: [
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: [
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true,
-              maintainAspectRatio: false
-            }
-          }]
-        }
-      }
-    });
+    async function submit2() {
+      let url = 'https://localhost:44377/api/V1/Box';
+      var data = myChart2.data.datasets[0].data;
+      console.log(data);
+      var buf = data[0];
+      for (var i = 1; i < data.length; i++)
+        data[i - 1] = data[i];
+      myChart2.update();
+      let response = await fetch(url);
+      console.log(response);
+
+      let temp = await response.json(); // читаем ответ в формате JSON
+
+      data[i - 1] = temp.value;
+    };
+
+    let timerId = setInterval(submit, 2000);
+
   </script>
 
 

@@ -321,6 +321,10 @@ Adaptive state of sideBar content
     height: 100%;
 }
 
-.size{
-    height:404px !important;
-  }
+main .collapsible-body div.row{
+    margin: 0;
+}
+
+ main .collapsible-body{
+    padding: 10px;
+}

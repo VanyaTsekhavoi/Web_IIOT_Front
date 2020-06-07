@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", function (event) {
     $('.sidenav').sidenav();
+    var elems = document.querySelectorAll('.collapsible');
+    var instances = M.Collapsible.init(elems);
+    ChartsInit(Chart);
 });
 
 var sidenavMain = document.getElementById("sidenav-main"),
@@ -66,6 +69,14 @@ document.getElementById("slide-out").addEventListener("click", (event) => {
     }
 });
 
+document.getElementById("nav-wrapper").addEventListener("click", (event) => {
+    console.log(event.target.hasAttribute('data-anchor'));
+    if (event.target.hasAttribute('data-anchor')) {
+        var el = document.getElementById(event.target.getAttribute('data-anchor'));
+        el.scrollIntoView({ block: "start", behavior: "smooth" });
+    }
+});
+
 document.getElementById("journeyRolling").addEventListener('click', function (event) {
 
     // Check if clicked element is a video thumbnail
@@ -90,7 +101,7 @@ document.getElementById("journeyRolling").addEventListener('click', function (ev
 
     mouseLock(video);
 
-    documentClickJourney = function(){
+    documentClickJourney = function () {
 
         console.log('click');
         if (video.parentNode.parentNode.parentNode.parentNode.classList.contains("active")) {
@@ -100,7 +111,7 @@ document.getElementById("journeyRolling").addEventListener('click', function (ev
             });
             mouseLock(video);
         }
-        else{
+        else {
             target.children[1].innerText = "We're done here";
             video.parentNode.replaceChild(target, video);
             document.removeEventListener('click', documentClickJourney);
@@ -135,9 +146,224 @@ function mouseLock(video) {
     }
 }
 
+function ChartsInit(Chart) {
+    var pressure_b1 = document.getElementById('first-box-pressure').getContext('2d'),
+        temperature_b1 = document.getElementById('first-box-temperature').getContext('2d'),
+        humidity_b1 = document.getElementById('first-box-humidity').getContext('2d'),
+        pressure_b2 = document.getElementById('second-box-pressure').getContext('2d'),
+        temperature_b2 = document.getElementById('second-box-temperature').getContext('2d'),
+        humidity_b2 = document.getElementById('second-box-humidity').getContext('2d');
 
 
+    myChart11 = new Chart(pressure_b1, {
+        type: 'bar',
+        data: {
+            labels: ['', '', '', '', ''],
+            datasets: [{
+                label: 'Pressure',
+                data: [12, 17, 12, 27, 12],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
 
+    myChart21 = new Chart(temperature_b1, {
+        type: 'line',
+        data: {
+            labels: ['', '', '', '', ''],
+            datasets: [{
+                label: 'Temperature',
+                data: [42, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        maintainAspectRatio: false
+                    }
+                }]
+            }
+        }
+    });
+
+    myChart31 = new Chart(humidity_b1, {
+        type: 'line',
+        data: {
+            labels: ['', '', '', '', ''],
+            datasets: [{
+                label: 'Temperature',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        maintainAspectRatio: false
+                    }
+                }]
+            }
+        }
+    });
+
+    myChart12 = new Chart(pressure_b2, {
+        type: 'bar',
+        data: {
+            labels: ['', '', '', '', ''],
+            datasets: [{
+                label: 'Pressure',
+                data: [12, 17, 12, 27, 12],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    myChart22 = new Chart(temperature_b2, {
+        type: 'line',
+        data: {
+            labels: ['', '', '', '', ''],
+            datasets: [{
+                label: 'Temperature',
+                data: [42, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        maintainAspectRatio: false
+                    }
+                }]
+            }
+        }
+    });
+
+    myChart32 = new Chart(humidity_b2, {
+        type: 'line',
+        data: {
+            labels: ['', '', '', '', ''],
+            datasets: [{
+                label: 'Temperature',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        maintainAspectRatio: false
+                    }
+                }]
+            }
+        }
+    });
+}
+
+async function submit() {
+    var data = myChart22.data.datasets[0].data;
+    console.log(data);
+    for (var i = 1; i < data.length; i++)
+        data[i - 1] = data[i];
+    data[i - 1] = 14;
+    myChart22.update();
+};
 /*
 
 */
