@@ -2,15 +2,29 @@ document.addEventListener("DOMContentLoaded", function (event) {
     $('.sidenav').sidenav();
     var elems = document.querySelectorAll('.collapsible');
     var instances = M.Collapsible.init(elems);
+    InitControllersLayer();
     ChartsInit(Chart);
 });
+
+function InitControllersLayer() {
+
+    fetch(`https://${host}/api/V1/Samples`, {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(response => response.text())
+        .then(text => console.log(text))
+        .catch(error => console.error('Unable to get Init Controller Layer.', error));
+}
+
 
 var sidenavMain = document.getElementById("sidenav-main"),
     docElement = document.documentElement,
     main = document.getElementById("main"),
     contentOverlay = $(".content-overlay"),
     navCollapsible = $(".navbar .nav-collapsible"),
-    breadcrumbsWrapper = $("#breadcrumbs-wrapper");
+    breadcrumbsWrapper = $("#breadcrumbs-wrapper"),
+    host = window.location.host;
 
 function fullscreen() {
     if (docElement.requestFullscreen) {
@@ -190,7 +204,7 @@ function ChartsInit(Chart) {
         }
     });
 
-    myChart21 = new Chart(temperature_b1, {
+    myChart12 = new Chart(temperature_b1, {
         type: 'line',
         data: {
             labels: ['', '', '', '', ''],
@@ -223,12 +237,12 @@ function ChartsInit(Chart) {
         }
     });
 
-    myChart31 = new Chart(humidity_b1, {
+    myChart13 = new Chart(humidity_b1, {
         type: 'line',
         data: {
             labels: ['', '', '', '', ''],
             datasets: [{
-                label: 'Temperature',
+                label: 'Humidity',
                 data: [12, 19, 3, 5, 2, 3],
                 backgroundColor: [
                     'rgba(54, 162, 235, 0.2)'
@@ -255,7 +269,7 @@ function ChartsInit(Chart) {
         }
     });
 
-    myChart12 = new Chart(pressure_b2, {
+    myChart21 = new Chart(pressure_b2, {
         type: 'bar',
         data: {
             labels: ['', '', '', '', ''],
@@ -323,12 +337,12 @@ function ChartsInit(Chart) {
         }
     });
 
-    myChart32 = new Chart(humidity_b2, {
+    myChart23 = new Chart(humidity_b2, {
         type: 'line',
         data: {
             labels: ['', '', '', '', ''],
             datasets: [{
-                label: 'Temperature',
+                label: 'Humidity',
                 data: [12, 19, 3, 5, 2, 3],
                 backgroundColor: [
                     'rgba(54, 162, 235, 0.2)'
@@ -356,14 +370,121 @@ function ChartsInit(Chart) {
     });
 }
 
+async function firstRelayClick() {
+
+    fetch(`https://${host}/api/V1/Peripheries/1`, {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(response => response.json())
+        .then(box => { })
+        .catch(error => console.error('Unable to switch First Relay.', error));
+
+}
+
+async function secondRelayClick() {
+
+    fetch(`https://${host}/api/V1/Peripheries/2`, {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(response => response.json())
+        .then(box => { })
+        .catch(error => console.error('Unable to switch Second Relay.', error));
+
+}
+
+async function arduinoVoltClick() {
+
+    fetch(`https://${host}/api/V1/Peripheries/3`, {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(response => response.json())
+        .then(box => { })
+        .catch(error => console.error('Unable to switch Semistor.', error));
+
+}
+
 async function submit() {
-    var data = myChart22.data.datasets[0].data;
-    console.log(data);
-    for (var i = 1; i < data.length; i++)
-        data[i - 1] = data[i];
+    var data11 = myChart11.data.datasets[0].data,
+        data12 = myChart12.data.datasets[0].data,
+        data13 = myChart13.data.datasets[0].data,
+        data21 = myChart21.data.datasets[0].data,
+        data22 = myChart22.data.datasets[0].data,
+        data23 = myChart23.data.datasets[0].data;
+
+    for (var i = 1; i < data11.length; i++) {
+        data11[i - 1] = data11[i];
+        data12[i - 1] = data12[i];
+        data13[i - 1] = data13[i];
+        data21[i - 1] = data21[i];
+        data22[i - 1] = data22[i];
+        data23[i - 1] = data23[i];
+    }
+
     data[i - 1] = 14;
     myChart22.update();
 };
+
+async function UpdateCharts() {
+    let baseurl = 'https://localhost:44377/api/V1/Boxes';
+
+    var data11 = myChart11.data.datasets[0].data,
+        data12 = myChart12.data.datasets[0].data,
+        data13 = myChart13.data.datasets[0].data,
+        data21 = myChart21.data.datasets[0].data,
+        data22 = myChart22.data.datasets[0].data,
+        data23 = myChart23.data.datasets[0].data;
+
+    for (var i = 1; i <= data11.length; i++) {
+        data11[i - 1] = data11[i];
+        data12[i - 1] = data12[i];
+        data13[i - 1] = data13[i];
+        data21[i - 1] = data21[i];
+        data22[i - 1] = data22[i];
+        data23[i - 1] = data23[i];
+    }
+
+    fetch(`https://${host}/api/V1/Boxes/1`, {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(response => response.json())
+        .then(box => {
+            data11[4] = box.pressure;
+            data12[4] = box.temperature;
+            data13[4] = box.humidity;
+            myChart11.update();
+            myChart12.update();
+            myChart13.update();
+        })
+        .catch(error => console.error('Unable to get 1 box.', error));
+
+    fetch(`https://${host}/api/V1/Boxes/2`, {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(response => response.json())
+        .then(box => {
+            data21[4] = box.pressure;
+            data22[4] = box.temperature;
+            data23[4] = box.humidity;
+            myChart21.update();
+            myChart22.update();
+            myChart23.update();
+        })
+        .catch(error => console.error('Unable to get 2 box.', error));
+};
+
+function UpdateChart(box) {
+    console.log(box)
+
+}
+
+let timerStart = setTimeout(function () { let timerId = setInterval(UpdateCharts, 2000); }, 10000);
+
+
 /*
 
 */

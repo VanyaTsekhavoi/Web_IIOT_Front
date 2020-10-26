@@ -176,10 +176,18 @@ Adaptive state of main page content
     padding-left: 64px
 }
 
+#main.main-full .collapsible .collapsible-body{
+}
+
+#first-box-pressure{
+
+}
+
 
 /*
 Adaptive state of sideBar content
  */
+
 
  .sidenav {
     top: 64px;
@@ -298,7 +306,7 @@ Adaptive state of sideBar content
     }
 
     .sidenav {
-        top: 56px;
+        top: 0px;
         overflow: hidden;
         height: 100%;
         padding-bottom: 65px;
